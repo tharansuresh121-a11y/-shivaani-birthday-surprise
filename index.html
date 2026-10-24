@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday, Shivaani! ❤️</title>
+  <meta name="description" content="A special birthday surprise for Shivaani Thago">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,600;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Canvas for Floating Hearts & Sparkles -->
+  <canvas id="sparkle-canvas"></canvas>
+
+  <!-- Sound / Music Controls -->
+  <header class="top-nav" aria-label="Controls and Progress">
+    <div class="music-controller">
+      <button id="music-toggle-btn" class="icon-btn" aria-label="Toggle background music" title="Toggle romantic music">
+        <span class="music-icon" id="music-icon">🎵</span>
+        <span class="music-label" id="music-label">Music: Off</span>
+      </button>
+      <audio id="bg-audio" preload="none" loop></audio>
+    </div>
+
+    <!-- Progress Indicator -->
+    <nav class="progress-bar-container" aria-label="Surprise progress">
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+      <div class="progress-steps" id="progress-steps">
+        <div class="step-dot active" data-step="1" title="Envelope 💌"><span>💌</span></div>
+        <div class="step-dot" data-step="2" title="Wishes 🎂"><span>🎂</span></div>
+        <div class="step-dot" data-step="3" title="Love Letter 💕"><span>💕</span></div>
+        <div class="step-dot" data-step="4" title="Secret Quiz 🔐"><span>🔐</span></div>
+        <div class="step-dot" data-step="5" title="Memory 💋"><span>💋</span></div>
+        <div class="step-dot" data-step="6" title="Special Gift 🎁"><span>🎁</span></div>
+        <div class="step-dot" data-step="7" title="Final Hug 🤗"><span>❤️</span></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Multi-Screen Container -->
+  <main id="app-container" class="app-viewport">
+
+    <!-- ================= SCREEN 1: THE BIRTHDAY ENVELOPE ================= -->
+    <section id="screen-1" class="screen active" aria-label="Screen 1: The Birthday Envelope">
+      <div class="screen-content card-center">
+        <div class="tag-pill">A Secret Message Awaits</div>
+        <h1 class="romantic-subtitle">Someone special has a little surprise for you...</h1>
+
+        <div class="envelope-wrapper" id="envelope-wrapper">
+          <div class="envelope" id="envelope">
+            <div class="envelope-back"></div>
+            <div class="letter-preview" id="letter-preview">
+              <div class="letter-preview-content">
+                <span class="mini-heart">❤️</span>
+                <p>For Shivaani</p>
+              </div>
+            </div>
+            <div class="envelope-left"></div>
+            <div class="envelope-right"></div>
+            <div class="envelope-bottom"></div>
+            <div class="envelope-flap" id="envelope-flap">
+              <div class="wax-seal">
+                <span>❤️</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button id="open-envelope-btn" class="magic-btn pulse-glow" aria-label="Open your letter">
+          <span>Open Your Letter ❤️</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 2: BIRTHDAY GREETING ================= -->
+    <section id="screen-2" class="screen" aria-label="Screen 2: Birthday Greeting">
+      <div class="screen-content card-center">
+        <!-- Cartoon Birthday Cake SVG -->
+        <div class="cake-illustration-container">
+          <svg class="birthday-cake-svg" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cute birthday cake with candle">
+            <!-- Glow around candle -->
+            <circle cx="120" cy="45" r="22" fill="url(#candle-glow)" opacity="0.6" class="flicker-glow" />
+            
+            <!-- Candle Flame -->
+            <path d="M120 30 C114 42 116 52 120 56 C124 52 126 42 120 30 Z" fill="url(#flame-grad)" class="flame-flicker" />
+            <ellipse cx="120" cy="50" rx="2.5" ry="4" fill="#FFF" opacity="0.8" />
+            
+            <!-- Candle Stick -->
+            <rect x="117" y="56" width="6" height="26" rx="3" fill="#FF85A1" />
+            <path d="M117 62 L123 66 M117 72 L123 76" stroke="#FFF" stroke-width="1.5" stroke-linecap="round" />
+
+            <!-- Cake Top Tier -->
+            <rect x="80" y="82" width="80" height="42" rx="12" fill="#FFF0F5" stroke="#F8BBD0" stroke-width="2" />
+            <!-- Top Frosting Drips -->
+            <path d="M80 94 C88 102 96 90 104 98 C112 104 120 92 128 100 C136 106 144 92 152 98 C156 100 160 94 160 94" fill="none" stroke="#FF6584" stroke-width="6" stroke-linecap="round" />
+            <!-- Strawberry on Top Tier -->
+            <circle cx="95" cy="82" r="5" fill="#FF3366" />
+            <circle cx="145" cy="82" r="5" fill="#FF3366" />
+
+            <!-- Cake Middle Tier -->
+            <rect x="60" y="120" width="120" height="46" rx="14" fill="#FFE5EC" stroke="#F8BBD0" stroke-width="2" />
+            <!-- Middle Frosting Swirls -->
+            <path d="M60 134 C72 144 84 130 96 142 C108 148 120 132 132 144 C144 150 156 132 168 144 C174 148 180 138 180 138" fill="none" stroke="#FF758F" stroke-width="6" stroke-linecap="round" />
+            <circle cx="85" cy="148" r="3.5" fill="#C9184A" />
+            <circle cx="120" cy="148" r="3.5" fill="#C9184A" />
+            <circle cx="155" cy="148" r="3.5" fill="#C9184A" />
+
+            <!-- Cake Bottom Tier -->
+            <rect x="40" y="162" width="160" height="50" rx="16" fill="#FFF5F7" stroke="#F8BBD0" stroke-width="2" />
+            <!-- Bottom Tier Frosting Swirls -->
+            <path d="M40 176 C55 188 70 172 85 186 C100 194 115 174 130 188 C145 194 160 174 175 188 C188 196 200 180 200 180" fill="none" stroke="#FF4D6D" stroke-width="7" stroke-linecap="round" />
+            <circle cx="65" cy="195" r="4" fill="#FF758F" />
+            <circle cx="102" cy="195" r="4" fill="#FF758F" />
+            <circle cx="138" cy="195" r="4" fill="#FF758F" />
+            <circle cx="175" cy="195" r="4" fill="#FF758F" />
+
+            <!-- Plate Stand -->
+            <path d="M25 214 C25 210 35 208 120 208 C205 208 215 210 215 214 L205 224 C205 226 195 228 120 228 C45 228 35 226 35 224 Z" fill="#E2E8F0" stroke="#CBD5E1" stroke-width="2" />
+
+            <defs>
+              <radialGradient id="candle-glow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#FFE066" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#FF9E00" stop-opacity="0" />
+              </radialGradient>
+              <linearGradient id="flame-grad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFF3B0" />
+                <stop offset="40%" stop-color="#FFB703" />
+                <stop offset="100%" stop-color="#FB8500" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Floating Pastel Balloons -->
+          <div class="balloon-group" aria-hidden="true">
+            <span class="balloon b1">🎈</span>
+            <span class="balloon b2">🌸</span>
+            <span class="balloon b3">🎈</span>
+            <span class="balloon b4">✨</span>
+          </div>
+        </div>
+
+        <!-- Sequential Messages -->
+        <div class="message-reveal-container">
+          <h2 class="romantic-title fade-seq" id="msg-1">Happy Birthday, My Love! ❤️</h2>
+          <p class="romantic-lead fade-seq" id="msg-2">Today is all about you, Shivaani.</p>
+          <p class="romantic-body fade-seq" id="msg-3">You make my world brighter just by being in it.</p>
+        </div>
+
+        <button id="screen2-next-btn" class="magic-btn pulse-glow" aria-label="Continue to love letter">
+          <span>Continue ❤️</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 3: PERSONAL LOVE LETTER ================= -->
+    <section id="screen-3" class="screen" aria-label="Screen 3: Personal Love Letter">
+      <div class="screen-content letter-scroll-wrap">
+        <div class="romantic-paper-card">
+          <div class="letter-stamp">
+            <span>Special Delivery 💌</span>
+          </div>
+          
+          <h2 class="letter-greeting">My Dearest Shivaani,</h2>
+          
+          <div class="letter-body">
+            <p>Happy Birthday to the girl who makes my life more beautiful. Every moment with you is special to me, and even the smallest memories become precious because they are with you.</p>
+            <p>Your smile makes my day better, and your presence means more to me than words can explain. I hope this birthday brings you happiness, love, laughter, and everything your heart wishes for.</p>
+            <p>No matter how many birthdays pass, I want to keep making beautiful memories with you.</p>
+            <p class="highlight-memory-hint">Today, I have one more little surprise for you. But before you unlock it, there is a special memory only we know about.</p>
+          </div>
+
+          <div class="letter-signoff">
+            <p>With all my love,</p>
+            <p class="signature">Your Person ❤️</p>
+          </div>
+        </div>
+
+        <div class="btn-stick-bottom">
+          <button id="screen3-next-btn" class="magic-btn pulse-glow" aria-label="Unlock our special memory">
+            <span>Unlock Our Special Memory 💋</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 4: FIRST-KISS DATE QUIZ ================= -->
+    <section id="screen-4" class="screen" aria-label="Screen 4: First Kiss Quiz">
+      <div class="screen-content card-center">
+        <!-- Animated Heart Lock -->
+        <div class="lock-container" id="heart-lock-container">
+          <svg class="heart-lock-svg" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Heart lock">
+            <!-- Shackle -->
+            <path id="lock-shackle" d="M50 70 V42 C50 24 62 14 80 14 C98 14 110 24 110 42 V70" stroke="#FFB703" stroke-width="12" stroke-linecap="round" fill="none" />
+            <!-- Heart Body -->
+            <path d="M80 145 C80 145 25 110 25 68 C25 45 42 35 60 40 C72 43 78 52 80 56 C82 52 88 43 100 40 C118 35 135 45 135 68 C135 110 80 145 80 145 Z" fill="url(#lock-grad)" stroke="#D81B60" stroke-width="3" filter="drop-shadow(0 6px 12px rgba(216, 27, 96, 0.35))" />
+            <!-- Keyhole -->
+            <circle cx="80" cy="85" r="8" fill="#590D22" />
+            <polygon points="76,87 84,87 86,105 74,105" fill="#590D22" />
+            <circle cx="80" cy="85" r="3" fill="#FFB703" />
+
+            <defs>
+              <linearGradient id="lock-grad" x1="20" y1="30" x2="140" y2="150" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#FF758F" />
+                <stop offset="50%" stop-color="#FF4D6D" />
+                <stop offset="100%" stop-color="#C9184A" />
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+
+        <h2 class="romantic-subtitle">Do you remember our first kiss? 💋</h2>
+        <p class="quiz-prompt">Enter the day and month of our special memory to unlock the next surprise.</p>
+
+        <!-- Quiz Form -->
+        <form id="quiz-form" class="quiz-inputs-wrapper" onsubmit="return false;">
+          <div class="input-pair">
+            <div class="field-col">
+              <label for="kiss-day">Day</label>
+              <select id="kiss-day" class="custom-select" aria-label="Select Day">
+                <option value="">Select Day</option>
+                <!-- Generated dynamically 1-31 -->
+              </select>
+            </div>
+            
+            <div class="field-col">
+              <label for="kiss-month">Month</label>
+              <select id="kiss-month" class="custom-select" aria-label="Select Month">
+                <option value="">Select Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Error / Feedback Notice -->
+          <div id="quiz-feedback" class="quiz-feedback" role="alert" aria-live="polite"></div>
+
+          <button id="unlock-quiz-btn" type="submit" class="magic-btn" aria-label="Unlock the secret memory">
+            <span>Unlock Surprise 💖</span>
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 5: FIRST-KISS MEMORY ================= -->
+    <section id="screen-5" class="screen" aria-label="Screen 5: First Kiss Memory Revealed">
+      <div class="screen-content card-center">
+        <!-- Glowing Beating Heart -->
+        <div class="beating-heart-wrapper">
+          <div class="halo-ring"></div>
+          <div class="pulsing-heart-icon">💋</div>
+          <div class="sparkle-orbitals" aria-hidden="true">
+            <span class="orb o1">✨</span>
+            <span class="orb o2">💖</span>
+            <span class="orb o3">✨</span>
+            <span class="orb o4">🌸</span>
+          </div>
+        </div>
+
+        <div class="memory-text-group">
+          <h2 class="romantic-title">You remembered it, my love! ❤️</h2>
+          <div class="date-badge">11 August</div>
+          <p class="romantic-lead">11 August — a little date that holds a big place in my heart.</p>
+          <p class="romantic-body">Some moments stay with us forever. That memory will always be special to me.</p>
+        </div>
+
+        <button id="screen5-next-btn" class="magic-btn pulse-glow" aria-label="Open your special gift">
+          <span>Open Your Special Gift 🎁</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 6: ANIMATED GIFT BOX & DOWNLOAD ================= -->
+    <section id="screen-6" class="screen" aria-label="Screen 6: Your Special Gift">
+      <div class="screen-content card-center">
+        <div class="tag-pill">For Your Bright Future ⚙️❤️</div>
+        <h2 class="romantic-title">Your Special Gift, My Love! ❤️📚</h2>
+        <p class="romantic-lead">I collected these GATE Mechanical Engineering question papers for you. Keep learning, keep growing, and always follow your dreams. I'll always be cheering for you.</p>
+
+        <!-- 3D Cute Cartoon Gift Box -->
+        <div class="gift-box-interactive" id="gift-box-container">
+          <div class="gift-box" id="gift-box">
+            <!-- Lid -->
+            <div class="gift-lid" id="gift-lid">
+              <div class="gift-ribbon-bow">
+                <span class="bow-loop left"></span>
+                <span class="bow-loop right"></span>
+                <span class="bow-knot"></span>
+              </div>
+              <div class="lid-rim"></div>
+              <div class="lid-ribbon-vert"></div>
+            </div>
+            <!-- Box Body -->
+            <div class="gift-body">
+              <div class="body-ribbon-vert"></div>
+              <div class="body-ribbon-horiz"></div>
+              <div class="gift-glow-core"></div>
+              <div class="gift-sparkles-inside">✨ 📚 ⚙️ ❤️</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single Download Button -->
+        <button id="download-gate-btn" class="magic-btn pulse-glow" aria-label="Download Your GATE Papers">
+          <span>Download Your GATE Papers 🎁</span>
+        </button>
+
+        <!-- Status / Error Notice -->
+        <div id="zip-error-msg" class="zip-status-notice" role="alert"></div>
+
+        <!-- Continue to Final Screen -->
+        <button id="screen6-next-btn" class="magic-btn secondary-style" aria-label="Continue to final screen">
+          <span>One Last Hug... ❤️</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= SCREEN 7: FINAL SCREEN — ONE LAST HUG ================= -->
+    <section id="screen-7" class="screen" aria-label="Screen 7: One Last Hug">
+      <div class="screen-content card-center">
+        <!-- Cute Cartoon Couple SVG -->
+        <div class="couple-illustration-wrapper">
+          <svg class="couple-svg" viewBox="0 0 260 220" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cute couple hugging happily">
+            <!-- Swirling Hearts around couple -->
+            <path d="M130 18 C120 4 100 8 100 24 C100 38 130 54 130 54 C130 54 160 38 160 24 C160 8 140 4 130 18 Z" fill="#FF4D6D" class="floating-float-heart" />
+            <path d="M60 60 C55 50 42 52 42 62 C42 70 60 82 60 82 C60 82 78 70 78 62 C78 52 65 50 60 60 Z" fill="#FF758F" opacity="0.9" class="floating-float-heart delay-1" />
+            <path d="M200 60 C195 50 182 52 182 62 C182 70 200 82 200 82 C200 82 218 70 218 62 C218 52 205 50 200 60 Z" fill="#FF758F" opacity="0.9" class="floating-float-heart delay-2" />
+
+            <!-- Person Left (Boy / Person) -->
+            <g class="character-left">
+              <!-- Body / Clothes -->
+              <path d="M75 130 C75 110 95 105 110 105 C120 105 125 112 128 120 L124 200 L70 200 Z" fill="#6C757D" />
+              <!-- Arm hugging -->
+              <path d="M88 126 C105 130 120 138 145 135 C152 134 156 138 152 144 C135 152 110 148 88 140 Z" fill="#FFD1BA" />
+              <path d="M84 124 C100 128 116 134 136 132" stroke="#495057" stroke-width="8" stroke-linecap="round" />
+              <!-- Head -->
+              <circle cx="102" cy="78" r="28" fill="#FFD1BA" />
+              <!-- Hair -->
+              <path d="M76 74 C74 54 90 42 112 44 C126 45 132 55 130 68 C124 64 116 66 110 66 C98 66 88 72 76 74 Z" fill="#2B2D42" />
+              <!-- Blushing Cheek -->
+              <ellipse cx="88" cy="85" rx="4.5" ry="3" fill="#FF8FA3" opacity="0.8" />
+              <!-- Eye (Smiling Arc) -->
+              <path d="M90 75 Q95 70 100 75" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <!-- Cute Smile -->
+              <path d="M96 85 Q102 91 106 87" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" fill="none" />
+            </g>
+
+            <!-- Person Right (Shivaani) -->
+            <g class="character-right">
+              <!-- Long Hair Backing -->
+              <path d="M135 70 C135 50 178 50 178 95 C178 135 168 165 165 175 C160 170 155 145 155 130 Z" fill="#3D261D" />
+              <!-- Body / Pastel Lavender Dress -->
+              <path d="M125 120 C128 112 135 105 148 105 C165 105 185 112 185 130 L190 200 L126 200 Z" fill="#CDB4DB" />
+              <!-- Head -->
+              <circle cx="154" cy="78" r="26" fill="#FFE0B2" />
+              <!-- Hair Front & Bangs -->
+              <path d="M132 72 C134 52 152 46 172 48 C182 49 184 62 182 74 C176 66 166 65 155 65 C144 65 138 70 132 72 Z" fill="#3D261D" />
+              <path d="M172 65 C178 76 182 92 180 115" stroke="#3D261D" stroke-width="8" stroke-linecap="round" fill="none" />
+              <!-- Flower Hairclip -->
+              <circle cx="170" cy="56" r="6" fill="#FF4D6D" />
+              <circle cx="170" cy="56" r="2.5" fill="#FFE066" />
+              <!-- Blushing Cheek -->
+              <ellipse cx="148" cy="85" rx="5" ry="3.5" fill="#FF758F" opacity="0.8" />
+              <!-- Smiling Closed Eye -->
+              <path d="M142 75 Q147 70 152 75" stroke="#2B2D42" stroke-width="2.5" stroke-linecap="round" fill="none" />
+              <!-- Sweet Smile -->
+              <path d="M144 86 Q149 91 154 87" stroke="#2B2D42" stroke-width="2" stroke-linecap="round" fill="none" />
+              <!-- Arm hugging -->
+              <path d="M168 126 C155 130 138 136 118 134 C112 133 110 138 114 143 C130 150 152 146 170 138 Z" fill="#FFE0B2" />
+              <path d="M172 124 C158 128 142 134 124 132" stroke="#B392AC" stroke-width="8" stroke-linecap="round" />
+            </g>
+          </svg>
+        </div>
+
+        <div class="final-wishes-group">
+          <h2 class="romantic-title">Happy Birthday Once Again, My Love! ❤️</h2>
+          <p class="romantic-lead">May your dreams come true, your smile never fade, and our story keep getting more beautiful.</p>
+          <p class="final-love-tag">You are my favorite person, today and always. ❤️</p>
+        </div>
+
+        <button id="replay-btn" class="magic-btn pulse-glow" aria-label="Start again from the beginning">
+          <span>Start Again 💕</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Sweet Toast Notification for Interactive Events -->
+  <div id="toast-notification" class="toast-popup" role="status" aria-live="polite"></div>
+
+  <!-- Custom Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
